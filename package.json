@@ -4,18 +4,19 @@
   "description": "",
   "main": "./index.js",
   "module": "./index.mjs",
-  "types": "./dist/bullmq-di.d.ts",
+  "types": "./dist/bullmq-inversify.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "types": "./dist/bullmq-inversify.d.ts"
+    }
+  },
   "files": [
     "dist",
     "index.js",
     "index.mjs"
   ],
-  "exports": {
-    ".": {
-      "import": "./index.mjs",
-      "require": "./index.js"
-    }
-  },
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "npx rollup -c",
@@ -26,7 +27,7 @@
   "author": "CYHollis",
   "license": "MIT",
   "dependencies": {
-    "@auroravpn/class-metadata": "^1.0.1",
+    "@auroravpn/class-metadata": "^1.0.0",
     "bullmq": "^3.15.0",
     "inversify": "^7.11.0",
     "ioredis": "^5.9.2"

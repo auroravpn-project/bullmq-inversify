@@ -1,2 +1,2 @@
 'use strict'
-module.exports = require('./dist/bullmq-di.cjs')
+module.exports = require('./dist/bullmq-inversify.cjs')

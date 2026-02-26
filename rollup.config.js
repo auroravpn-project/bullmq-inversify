@@ -16,7 +16,7 @@ export default defineConfig([
     input: './src/index.ts',
     external: [...Object.keys(pkg.dependencies)],
     output: {
-      file: 'dist/bullmq-di.cjs',
+      file: 'dist/bullmq-inversify.cjs',
       format: 'cjs',
       sourcemap: false
     },
@@ -31,7 +31,7 @@ export default defineConfig([
   {
     input: 'src/index.ts',
     output: {
-      file: './dist/bullmq-di.d.ts',
+      file: './dist/bullmq-inversify.d.ts',
       format: 'es'
     },
     plugins: [dts()]
