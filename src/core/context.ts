@@ -1,12 +1,12 @@
 import { Container } from "inversify"
-import { Redis } from "ioredis"
 import { AppCtxNotInitializedError } from "./errors/app-ctx-not-ini.error"
+import { ConnectionOptions } from "bullmq"
 
 class AppContext {
   private container: Container | null = null
-  private connection: Redis | null = null
+  private connection: ConnectionOptions | null = null
 
-  initContext(container: Container, connection: Redis) {
+  initContext(container: Container, connection: ConnectionOptions) {
     this.container = container
     this.connection = connection
   }
@@ -18,7 +18,7 @@ class AppContext {
     return this.container
   }
 
-  getConnection() {
+  getConnectionOpts() {
     if (!this.connection) {
       throw new AppCtxNotInitializedError('No context found for this app')
     }

@@ -9,7 +9,7 @@ export function loadQueue() {
   storage.metadata.each<QueueMetadata>((val) => {
     const queue = new Queue(
       val.queueName,
-      { connection: context.getConnection() as any }
+      { connection: context.getConnectionOpts() }
     )
     val.each<JobMetadata>((item) => {
       item.jobOption ?
@@ -22,7 +22,7 @@ export function loadQueue() {
           resolve(val.target)[item.propertyName]()
         }
       })
-    }, { connection: context.getConnection() as any })
+    }, { connection: context.getConnectionOpts() })
     addQueue(queue)
     addWorker(worker)
   })

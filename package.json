@@ -26,11 +26,12 @@
   "keywords": [],
   "author": "CYHollis",
   "license": "MIT",
+  "peerDependencies": {
+    "inversify": "^7.11.0"
+  },
   "dependencies": {
     "@auroravpn/class-metadata": "^1.0.0",
-    "bullmq": "^3.15.0",
-    "inversify": "^7.11.0",
-    "ioredis": "^5.9.2"
+    "bullmq": "^3.15.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
