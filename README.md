@@ -1,6 +1,15 @@
-# Bullmq-DI
+# Bullmq-Inversify
 
-## 安装
+### Table of Contents
+
+- [Installation](#Installation)
+- [Quickstart](#Quickstart)
+- [API references](#API-references)
+  - [Constructor](#Constructor)
+  - [Instance methods](#Instance-methods)
+  - [Decorators](#Decorators)
+
+### Installation
 
 ```bash
 npm install @auroravpn/bullmq-inversify
@@ -8,7 +17,9 @@ yarn add @auroravpn/bullmq-inversify
 pnpm add @auroravpn/bullmq-inversify
 ```
 
-## 快速开始
+### Quickstart
+
+> ⚠️ **警告：** 本项目必须使用 Typescript 并启用装饰器选项
 
 ```typescript
 // 导入包
@@ -45,11 +56,11 @@ const app = new InversifyBullmq(container, connection)
 app.start()
 ```
 
-## API 参考
+### API references
 
-### 构造函数
+#### Constructor
 
-#### `new InversifyBullmq(container, connection)`
+##### `new InversifyBullmq(container, connection)`
 
 **参数**
 
@@ -72,9 +83,9 @@ const app = new InversifyBullmq(container, connection)
 
 
 
-### 实例方法
+#### Instance methods
 
-#### `InversifyBullmq.start()`
+##### `InversifyBullmq.start()`
 
 **返回值** `void`
 
@@ -86,9 +97,9 @@ app.start()
 
 
 
-### 装饰器
+#### Decorators
 
-#### `Queue(queueName)`
+##### `Queue(queueName)`
 
 **参数**
 
@@ -104,7 +115,7 @@ class TestScheduler {
 
 
 
-#### `Job(jobName, [jobOption])`
+##### `Job(jobName, [jobOption])`
 
 **参数**
 
