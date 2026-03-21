@@ -1,4 +1,4 @@
-import { Job, Queue, QueueEvents, RedisConnection, Worker } from "bullmq"
+import { Job, JobsOptions, Queue, QueueEvents, RedisConnection, Worker } from "bullmq"
 import { context } from "../core/context"
 import { resolve } from "../core/resolver"
 import { JobMetadata, QueueMetadata } from "../metadata/metadata"
@@ -12,9 +12,11 @@ export function loadQueue() {
       { connection: context.getConnectionOpts() }
     )
     val.each<JobMetadata>((item) => {
-      item.jobOption ?
-        queue.add(item.jobName, {}, item.jobOption) :
-        queue.add(item.jobName, {})
+      const jobOptions: JobsOptions = {
+        jobId: item.jobName,
+        ...item.jobOption
+      }
+      queue.add(item.jobName, {}, jobOptions)
     })
     const worker = new Worker(val.queueName, async (job: Job) => {
       val.each<JobMetadata>((item) => {

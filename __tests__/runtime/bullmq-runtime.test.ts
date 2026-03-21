@@ -3,7 +3,7 @@ import { InversifyBullmq, Job, Queue } from '../../src/index'
 
 @Queue('test')
 class TestScheduler {
-  @Job('log', { repeat: { every: 1000 } })
+  @Job('log')
   public test() {
     console.log('test')
   }
@@ -15,7 +15,7 @@ container.bind(TestScheduler).toSelf()
 const app = new InversifyBullmq(container, {
   host: 'localhost',
   port: 6379,
-  db: 3,
+  db: 0,
   maxRetriesPerRequest: null
 })
 
